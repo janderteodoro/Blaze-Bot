@@ -2,8 +2,9 @@ from distutils.log import INFO
 import logging
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
+from config import config
 
-TOKEN='5506412234:AAF-0_PQLOQkpwb-Ry-LBK_FiDtxPOYWfUU'
+token = config['TOKEN']
 
 logging.basicConfig(
   format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -17,7 +18,7 @@ async def crash(update: Update, context: ContextTypes.DEFAULT_TYPE):
   await context.bot.send_message(chat_id=update.effective_chat.id, text='Aqui te darei informação sobre o game crash')
 
 if __name__ == '__main__':
-  apllication = ApplicationBuilder().token(TOKEN).build()
+  apllication = ApplicationBuilder().token(token).build()
 
   start_handler = CommandHandler('start', start)
   crash_handler = CommandHandler('crash', crash)
