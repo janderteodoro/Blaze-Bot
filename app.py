@@ -40,3 +40,5 @@ if __name__ == '__main__':
     chrome = ChromeAuto()
     chrome.acess(urlCrash)
     chrome.getLastValues()
+    chrome.close()
+    
